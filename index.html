@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ella Beauty Salon — Professional Haircut & Styling Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold: #d4aa46;
+      --gold-dark: #b8892f;
+      --bg: #fbf7f3;
+      --muted: #6b6b6b;
+      --card-bg: #ffffff;
+      --accent-dark: #111010;
+      --radius: 14px;
+      --container: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--accent-dark);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Top logo bar */
+    .topbar{
+      display:flex;
+      justify-content:center;
+      padding:22px 16px;
+      background:linear-gradient(180deg, rgba(212,170,70,0.06), rgba(0,0,0,0));
+    }
+    .logo{
+      font-family:"Merriweather", serif;
+      font-weight:700;
+      letter-spacing:4px;
+      color:var(--gold-dark);
+      font-size:20px;
+      text-transform:uppercase;
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      min-height:460px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      overflow:hidden;
+    }
+    .hero .hero-bg{
+      position:absolute;
+      inset:0;
+      background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=80');
+      background-size:cover;
+      background-position:center;
+      filter:contrast(0.95) saturate(1.05) brightness(0.55);
+      z-index:0;
+    }
+    .hero .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.55));
+      z-index:1;
+    }
+    .hero .content{
+      z-index:2;
+      padding:48px 20px;
+      max-width:980px;
+    }
+    .hero h1{
+      font-family:"Merriweather", serif;
+      font-size:42px;
+      margin:0 0 10px;
+      letter-spacing:1px;
+    }
+    .hero p.lead{
+      margin:0 0 18px;
+      font-size:18px;
+      color:rgba(255,255,255,0.95);
+    }
+    .cta{
+      display:inline-block;
+      background:var(--gold);
+      color:var(--accent-dark);
+      padding:14px 22px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    /* torn paper SVG separator */
+    .torn{
+      display:block;
+      width:100%;
+      line-height:0;
+    }
+    .torn svg{display:block;width:100%;height:90px}
+
+    /* main content */
+    .container{
+      width:calc(100% - 40px);
+      max-width:var(--container);
+      margin:0 auto;
+      padding:36px 0 80px;
+    }
+
+    .about{
+      background:var(--card-bg);
+      padding:36px;
+      border-radius:12px;
+      box-shadow:0 6px 30px rgba(16,16,16,0.06);
+      margin-top:-50px;
+    }
+    .about h2{
+      font-family:"Merriweather", serif;
+      color:var(--gold-dark);
+      margin:0 0 10px;
+      font-size:22px;
+    }
+    .about p{color:var(--muted); margin:0 0 8px; white-space:pre-line}
+
+    .flex{
+      display:flex;
+      gap:20px;
+      margin-top:20px;
+      flex-wrap:wrap;
+    }
+    .card{
+      flex:1 1 220px;
+      min-width:220px;
+      background:var(--card-bg);
+      padding:20px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:0 6px 18px rgba(16,16,16,0.06);
+    }
+    .card .icon{
+      font-size:28px;
+      color:var(--gold-dark);
+      margin-bottom:10px;
+    }
+    .card h3{margin:6px 0 8px; font-size:16px}
+    .card p{font-size:14px; color:var(--muted)}
+
+    /* Price & List */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:26px;
+      margin-top:36px;
+    }
+    .prices{
+      background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02));
+      padding:22px;
+      border-radius:12px;
+    }
+    .price-item{
+      display:flex;
+      justify-content:space-between;
+      border-bottom:1px dashed rgba(0,0,0,0.06);
+      padding:10px 0;
+      color:var(--muted);
+      font-weight:600;
+      font-size:15px;
+    }
+    .price-item span{color:var(--muted);}
+
+    /* Testimonials */
+    .testimonials{
+      background:linear-gradient(180deg, rgba(212,170,70,0.03), rgba(0,0,0,0.02));
+      padding:22px;
+      border-radius:12px;
+    }
+    blockquote{
+      margin:0;
+      font-style:italic;
+      color:#222;
+    }
+    blockquote footer{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+      font-style:normal;
+    }
+
+    /* Contact / Footer */
+    footer.site-footer{
+      margin-top:40px;
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:22px;
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow:0 6px 20px rgba(16,16,16,0.05);
+      flex-wrap:wrap;
+    }
+    .contact-left{
+      line-height:1.2;
+    }
+    .contact-left h3{
+      margin:0 0 6px;
+      font-family:"Merriweather", serif;
+      color:var(--gold-dark)
+    }
+    .contact-left a{color:var(--accent-dark); text-decoration:none; font-weight:600}
+    .hours{color:var(--muted); font-size:14px; margin-top:6px}
+
+    .social{
+      display:flex;
+      gap:10px;
+    }
+    .social a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+
+    /* small screens */
+    @media (max-width:900px){
+      .hero h1{font-size:32px}
+      .split{grid-template-columns:1fr}
+      .container{padding:20px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- top logo -->
+  <div class="topbar">
+    <div class="logo">Ella Beauty Salon</div>
+  </div>
+
+  <!-- hero -->
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="overlay" aria-hidden="true"></div>
+    <div class="content">
+      <h1>Professional Haircut & Styling Services</h1>
+      <p class="lead">Tailored to your unique style — at Ella Beauty Salon</p>
+      <a class="cta" href="tel:+14165161212">Book an Appointment</a>
+    </div>
+
+    <!-- torn paper SVG at bottom of hero -->
+    <div class="torn" style="position:absolute;bottom:0;left:0;right:0;">
+      <svg viewBox="0 0 1200 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,20 C150,120 350,0 600,40 C850,80 1050,10 1200,40 L1200,100 L0,100 Z" fill="#fff"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- main container -->
+  <main class="container" role="main">
+
+    <!-- About -->
+    <section class="about" id="about">
+      <h2>About Ella Beauty Salon</h2>
+      <p>
+From Ella Beauty Salon
+
+<strong>Ella Haircut — Professional Haircut & Styling Services</strong>
+
+At Ella Haircut, we specialize in providing high-quality haircut and styling services tailored to your individual needs. Whether you're looking for a classic trim, a bold new look, or a specialized style, our skilled barbers and stylists are here to deliver exceptional results.
+
+We pride ourselves on using premium products, maintaining a clean and comfortable environment, and offering personalized consultations to ensure every client leaves feeling confident and satisfied.
+
+Located conveniently at <strong>939 Bloor St W, Toronto, ON M6H 1L5</strong>, we offer a wide range of services including haircuts, beard trims, styling, and more. Walk-ins are welcome, but we also encourage appointments for your convenience. Visit us today!
+      </p>
+
+      <div class="flex" style="margin-top:18px;">
+        <div class="card">
+          <div class="icon">✂️</div>
+          <h3>Haircut</h3>
+          <p>Classic & modern cuts tailored to your look and lifestyle.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧔</div>
+          <h3>Beard Trim</h3>
+          <p>Precise beard shaping and maintenance for a clean finish.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💇‍♀️</div>
+          <h3>Styling</h3>
+          <p>Special occasion styling, blowouts, and finishing touches.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🪒</div>
+          <h3>Shaving</h3>
+          <p>Traditional and modern shaving services for a smooth feel.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="prices" aria-label="Price list">
+          <h3 style="font-family:'Merriweather', serif; color:var(--gold-dark); margin:0 0 8px;">Price List</h3>
+          <div class="price-item"><span>Classic Haircut</span><strong>$29</strong></div>
+          <div class="price-item"><span>Classic Haircut & Hair Washing</span><strong>$34</strong></div>
+          <div class="price-item"><span>Classic Haircut for Long Hair</span><strong>$39</strong></div>
+          <div class="price-item"><span>Classic Shaving</span><strong>$19</strong></div>
+          <div class="price-item"><span>Stylization & Arranging Beard</span><strong>$25</strong></div>
+          <div class="price-item"><span>Trimming Hair & Beard</span><strong>$29</strong></div>
+        </div>
+
+        <div class="testimonials">
+          <h3 style="font-family:'Merriweather', serif; color:var(--gold-dark); margin:0 0 8px;">Satisfied Customers</h3>
+          <blockquote>
+            “Amazing service and atmosphere! I always leave with a fresh cut and a smile.”
+            <footer>— John D.</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer / contact -->
+    <footer class="site-footer">
+      <div class="contact-left">
+        <h3>Ella Beauty Salon</h3>
+        <div><a href="tel:+14165161212">(416) 516-1212</a></div>
+        <div style="margin-top:6px;"><a href="https://www.google.com/maps/search/939+Bloor+St+W,+Toronto,+ON+M6H+1L5" target="_blank" rel="noopener noreferrer">939 Bloor St W, Toronto, ON M6H 1L5</a></div>
+        <div class="hours">Hours: Mon–Sat 10AM–7PM • Sun Closed</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; align-items:flex-end;">
+        <div class="social" aria-hidden="true">
+          <a href="#" title="Instagram">Instagram</a>
+          <a href="#" title="Facebook">Facebook</a>
+          <a href="#" title="Google">Google</a>
+        </div>
+        <div style="margin-top:10px; font-size:12px; color:var(--muted)">© <strong>Ella Beauty Salon</strong> — All rights reserved</div>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>
